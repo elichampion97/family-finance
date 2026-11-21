@@ -64,6 +64,7 @@
   const APPROVED_EMAILS = ["cheynewton2016@gmail.com", "thechampionfamily2018@gmail.com", "eli.champion97@gmail.com"];
   const CLIENT_ID = "407047281361-2u9m5q4c39ocgd6r2d7fgiia8anal3rc.apps.googleusercontent.com";
   const GROCERY_SHEET_ID = "1exL1itsRpbgXTplAoMelIw6kKHMo3-Xy19g4Zi86zdE";
+  const DEFAULT_FINANCE_SHEET_ID = "1VPX3G1cgpUtXi_PMN5nbyaQG1Hg-Iiuv8b7s8UD6QEU";
   const STORAGE_CONFIG = "champion-family-finance.config.v1";
   const SHEETS_SCOPE = "https://www.googleapis.com/auth/spreadsheets";
   const DEFAULT_CATEGORIES = [
@@ -74,7 +75,7 @@
   const state = { config: readConfig(), accessToken: "", tokenClient: null, profile: null, demo: false, view: "home", transactions: [], accounts: [], categories: [], bills: [], groceryEvents: [], groceryItems: [], search: "", typeFilter: "" };
   const qs = (s) => document.querySelector(s); const qsa = (s) => [...document.querySelectorAll(s)];
 
-  function readConfig(){ try{return JSON.parse(localStorage.getItem(STORAGE_CONFIG)||"{}")||{};}catch{return{};} }
+  function readConfig(){ try{return {financeSheetId:DEFAULT_FINANCE_SHEET_ID,...(JSON.parse(localStorage.getItem(STORAGE_CONFIG)||"{}")||{})};}catch{return{financeSheetId:DEFAULT_FINANCE_SHEET_ID};} }
   function saveConfig(){ localStorage.setItem(STORAGE_CONFIG,JSON.stringify(state.config)); }
   function show(name){ ["signin","setup","app"].forEach((v)=>qs(`#${v}View`).classList.toggle("hidden",v!==name)); qs("#mobileNav").classList.toggle("hidden",name!=="app"); }
   function bind(){
