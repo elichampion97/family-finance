@@ -1,0 +1,12 @@
+{
+  "name": "Champion Family Finance",
+  "short_name": "Family Finance",
+  "description": "A private family budget, bill, and transaction tracker backed by Google Sheets.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08111f",
+  "theme_color": "#08111f",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
